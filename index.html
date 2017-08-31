@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Netflixek</title>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+  <script src="./data.js" type="text/javascript"></script>
+  <script src="./script.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <meta charset="utf-8">
+</head>
+<body>
+
+
+  <h1>Netflixanek</h1>
+
+  <div id="Year selector">
+  <form method="get">  <!-- TODO add action="" to point to BACKEND -->
+    <div>
+      <label>From: 
+        <select name="startYear">
+          <option>Year</option>
+        </select>
+      </label>
+
+      <label>To: 
+        <select name="endYear">
+          <option>Year</option>
+        </select>
+      </label>
+
+      <label>Genre:
+        <select name="genre">
+          <option>Genre</option>
+          <option>Comedy</option>
+          <option>Drama</option>
+          <option>Scifi with spaceships</option>
+          <option>Thriller</option>
+          <option>Romantic</option>
+        </select>
+      </label>
+
+      <label>Already watched
+        <input name="watched" type="checkbox">
+      </label>
+    </div>
+
+    <div>
+      <button>Search</button>
+    </div>
+  </form>  
+  </div>
+
+  <h2>Movies</h2>
+  <table>
+    <thead>
+      <tr>
+        <th class="header">Movie</th>
+        <th class="header">Rating</th>
+        <th class="header">Release year</th>
+        <th class="header">Watched</th>
+      </tr>  
+    </thead>  
+    
+     <tbody></tbody>   
+  </table> 
+ 
+</body>
+</html>

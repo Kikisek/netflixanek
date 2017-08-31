@@ -1,0 +1,65 @@
+h1 {
+    text-align: center;
+}
+
+.jumbotron {
+    margin-bottom: 0;
+}
+
+.genre, .year {
+    padding: 3px 20px;
+}
+
+#criteria {
+    font-weight: bold;
+}
+
+.description {
+    display: none;
+    font-weight: normal;
+}
+
+.watched {
+    text-align: center;
+}
+
+ul button {
+    margin-top: 8px;
+}
+
+#dropGenre {
+    margin-left: 60px;
+}
+
+.years {
+    margin-right: 0px;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.title {
+    cursor: pointer;
+    border-bottom: none;
+}
+
+.panel-footer {
+    text-align: center;
+}
+
+.gen {
+    text-align: center;
+}
+
+.description td {
+    border-top: none;
+}
+
+.borderless {
+    border-width: 0;
+}
