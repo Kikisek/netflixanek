@@ -6,8 +6,12 @@ h1 {
     margin-bottom: 0;
 }
 
-.description {
+.description td p {
     display: none;
+}
+
+.description td {
+    padding: 0 !important;
 }
 
 ::-webkit-scrollbar { 
@@ -59,7 +63,7 @@ label {
     font-weight: normal;
 }
 
-.hide {
+.hide {             /*spinner*/
     visibility: hidden;   
 }
 
@@ -83,7 +87,8 @@ label {
     -ms-transform: translateZ(0);
     transform: translateZ(0);
   }
-  .loader:before {
+
+.loader:before {
     width: 50%;
     height: 50%;
     background: #c8c8c8;
@@ -92,8 +97,9 @@ label {
     top: 0;
     left: 0;
     content: '';
-  }
-  .loader:after {
+}
+
+.loader:after {
     background: #272b30;
     width: 75%;
     height: 75%;
@@ -106,7 +112,8 @@ label {
     bottom: 0;
     right: 0;
   }
-  @-webkit-keyframes load3 {
+  
+@-webkit-keyframes load3 {
     0% {
       -webkit-transform: rotate(0deg);
       transform: rotate(0deg);
@@ -115,8 +122,9 @@ label {
       -webkit-transform: rotate(360deg);
       transform: rotate(360deg);
     }
-  }
-  @keyframes load3 {
+}
+
+@keyframes load3 {
     0% {
       -webkit-transform: rotate(0deg);
       transform: rotate(0deg);
@@ -125,4 +133,8 @@ label {
       -webkit-transform: rotate(360deg);
       transform: rotate(360deg);
     }
-  }
+}
+
+tbody td {
+    border: 0 !important;
+}
