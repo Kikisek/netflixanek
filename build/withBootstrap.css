@@ -39,10 +39,6 @@ ul button {
     display: none; 
 }
 
-.bold {
-    font-weight: bold;
-}
-
 .title {
     cursor: pointer;
     border-bottom: none;
@@ -50,6 +46,8 @@ ul button {
 
 .panel-footer {
     text-align: center;
+    height: 40px;
+    padding: 5px 0;
 }
 
 .gen {
@@ -62,4 +60,36 @@ ul button {
 
 .borderless {
     border-width: 0;
+}
+
+#footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.form-control {
+    width: 100px;
+    height: 25px;
+    font-size: 12px;
+    text-align: center;
+    display: inline-block;
+    padding: 0;   
+}
+
+.year {
+    width: 55px;
+}
+
+#genre {
+    margin-right: 30px;
+}
+
+#yearSelection {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+label {
+    display: inline-block;
+    font-weight: normal;
 }

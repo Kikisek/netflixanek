@@ -14,14 +14,40 @@
 <div class="jumbotron">
     <div class="container">
         <h1><i class="fa fa-video-camera" aria-hidden="true"></i> Netflixánek</h1>
-        <p>Our personal customized movie database that was created to link the movies on <a href="http://www.netflix.com">Netflix</a> with the rating on <a href="http://www.csfd.cz">CSFD</a></p>
     </div>
 </div>
 
 <div class="panel panel-default">
   <div class="panel-body">
-    Panel content
+    <div id="yearSelection">
+      <select class="form-control year">
+        <option value="one">From</option>
+        <option value="two">1990</option>
+        <option value="three">1991</option>
+        <option value="four">2013</option>
+        <option value="five">2017</option>
+      </select>
+
+      <select class="form-control year">
+        <option value="one">To</option>
+        <option value="two">1999</option>
+        <option value="three">2010</option>
+        <option value="four">2015</option>
+        <option value="five">2012</option>
+      </select>
+    </div>
+
+    <select class="form-control" id="genre">
+      <option value="one">Genre</option>
+      <option value="two">Comedy</option>
+      <option value="three">Drama</option>
+      <option value="four">Romantic</option>
+      <option value="five">Documentary</option>
+    </select>        
+
+    <label><input type="checkbox"> Watched</label>
   </div>
+
   <div class="panel-footer">
     <button type="button" class="btn btn-success btn-sm">Search</button>
     <button type="button" class="btn btn-danger btn-sm">Reset Search</button>
@@ -39,6 +65,8 @@
     <tbody></tbody>
   </table>
 </div>
+
+<p id="footer">Our personal customized movie database that was created to link the movies on <a href="http://www.netflix.com">Netflix</a> with the rating on <a href="http://www.csfd.cz">CSFD</a></p>
 
 <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
