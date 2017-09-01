@@ -6,33 +6,8 @@ h1 {
     margin-bottom: 0;
 }
 
-.genre, .year {
-    padding: 3px 20px;
-}
-
-#criteria {
-    font-weight: bold;
-}
-
 .description {
     display: none;
-    font-weight: normal;
-}
-
-.watched {
-    text-align: center;
-}
-
-ul button {
-    margin-top: 8px;
-}
-
-#dropGenre {
-    margin-left: 60px;
-}
-
-.years {
-    margin-right: 0px;
 }
 
 ::-webkit-scrollbar { 
@@ -41,7 +16,6 @@ ul button {
 
 .title {
     cursor: pointer;
-    border-bottom: none;
 }
 
 .panel-footer {
@@ -50,21 +24,12 @@ ul button {
     padding: 5px 0;
 }
 
-.gen {
+.gen {                            /*for icons*/
     text-align: center;
 }
 
-.description td {
-    border-top: none;
-}
-
-.borderless {
-    border-width: 0;
-}
-
 #footer {
-    padding-left: 15px;
-    padding-right: 15px;
+    text-align: center;
 }
 
 .form-control {
@@ -93,3 +58,71 @@ label {
     display: inline-block;
     font-weight: normal;
 }
+
+.hide {
+    visibility: hidden;   
+}
+
+.loader {
+    font-size: 10px;
+    margin: 50px auto;
+    text-indent: -9999em;
+    width: 11em;
+    height: 11em;
+    border-radius: 50%;
+    background: #c8c8c8;
+    background: -moz-linear-gradient(left, #c8c8c8 10%, rgba(255, 255, 255, 0) 42%);
+    background: -webkit-linear-gradient(left, #c8c8c8 10%, rgba(255, 255, 255, 0) 42%);
+    background: -o-linear-gradient(left, #c8c8c8 10%, rgba(255, 255, 255, 0) 42%);
+    background: -ms-linear-gradient(left, #c8c8c8 10%, rgba(255, 255, 255, 0) 42%);
+    background: linear-gradient(to right, #c8c8c8 10%, rgba(255, 255, 255, 0) 42%);
+    position: relative;
+    -webkit-animation: load3 1.4s infinite linear;
+    animation: load3 1.4s infinite linear;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  .loader:before {
+    width: 50%;
+    height: 50%;
+    background: #c8c8c8;
+    border-radius: 100% 0 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+  }
+  .loader:after {
+    background: #272b30;
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    content: '';
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  @-webkit-keyframes load3 {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes load3 {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
