@@ -1,0 +1,92 @@
+h1 {
+    text-align: center;
+}
+
+.jumbotron {
+    margin-bottom: 0;
+}
+
+.description td p {
+    display: none;
+}
+
+table {
+    
+    table-layout: fixed;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+.title {
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.details, thead {
+    font-size: 0.8em;
+}
+
+.gen {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.narrow {
+      width: 60px;
+}
+
+.panel-footer {
+    text-align: center;
+    height: 40px;
+    padding: 5px 0;
+}
+
+/* .gen {                            for icons
+    text-align: center;
+} */
+
+#footer {
+    text-align: center;
+}
+
+.form-control {
+    width: 100px;
+    height: 25px;
+    font-size: 12px;
+    text-align: center;
+    display: inline-block;
+    padding: 0;   
+}
+
+/* #year, #country, #genre, #type {
+    margin-right: 10px;
+} */
+
+#watched {
+    display: inline-block;
+    font-weight: normal;
+}
+
+.hide {             /*spinner*/
+    visibility: hidden;   
+}
+
+.description td {
+    background-color: #272b30;
+    border-top: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.details td {
+    border-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+@media (min-width: 700px) { 
+    .narrow {
+        width: 25%;
+    }
+ }
