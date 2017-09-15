@@ -21,6 +21,9 @@ table {
 
 .title {
     font-size: 1.2em;
+}
+
+.openDescription {
     cursor: pointer;
 }
 

@@ -244,7 +244,7 @@ var localization = {
 };
 var movies = [];
 
-for (var i = 0; i < 0; i++) {  
+for (var i = 0; i < 50; i++) {  
 	movies.push({
     "id": faker.random.number(),
     "title": faker.lorem.words(),
@@ -262,9 +262,10 @@ for (var i = 0; i < 0; i++) {
 	});
 }
 
-$.getJSON("https://netflix-csfd.herokuapp.com/movies", function (data) {
-  movies = data;
-});
+// $.getJSON("https://netflix-csfd.herokuapp.com/movies", function (data) {
+//   movies = data;
+// });
+
 
 // data = [
 // 	{

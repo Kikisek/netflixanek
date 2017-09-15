@@ -2,13 +2,16 @@ function render(data){
   $("tbody").empty();
   for (var movie of data) {
     $("tbody").append(`
-      <tr><td class='title' colspan='3'>${movie.title}</td></tr>             
-      <tr class='details'><td class='rating'>${movie.rating_csfd + "%"}</td>            //link to csfd
+      <tr class='openDescription'><td class='title' colspan='3'>${movie.title}</td></tr>             
+      <tr class='details openDescription'><td class='rating'>${movie.rating_csfd + "%"}</td>
       <td class='releaseYear'>${movie.year}</td>
       <td class='gen'>${movie.genres.join(", ")}</td></tr>
       <tr class='description'><td colspan='3'><p>${movie.description}</p></td></tr>
     `);
   };
+  $(".openDescription").click (function (event) {
+    $(this).nextAll(".description:first").children().children().slideToggle();
+  });
 };
 
 function filterMovies (movies, year, country, genre, type, watched) {
@@ -46,13 +49,7 @@ $(document).ready(function() {
     $("#genre").append("<option>" + key + "</option>");
   };
 
-  // $.getJSON("https://netflix-csfd.herokuapp.com/movies", function(allData){
-
-  // render(movies);
-
-  $(".title").click (function (event) {
-    $(this).parent().nextAll(".description:first").children().children().slideToggle();
-  });
+  render(movies);
 
   $(".btn-success").click(function() {
     var yearStr = extractCriteria("year");
@@ -60,7 +57,7 @@ $(document).ready(function() {
     var country = extractCriteria("country");
     var genre = extractCriteria("genre");
     var type = extractCriteria("type");
-    var watched = $("#watched").is(":checked"); //TBD
+    var watched = $("#watched").is(":checked");
     render(filterMovies(movies, year, country, genre, type, watched));
   });
 
@@ -74,4 +71,3 @@ $(document).ready(function() {
 
     $(".loader").addClass("hide");
   });
-// });
