@@ -36,38 +36,44 @@ function extractCriteria(id){
   return $("#" + id).val();
 }
 
-$(document).ready(function() {
-  for (var i = 1940; i <= (new Date().getFullYear()); i += 10){
-    $("#year").append("<option>" + i + "s</option>");
-  };
+$.getJSON("https://netflix-csfd.herokuapp.com/movies", function (data) {
+  var movies = data.map(function(movie) {
+    movie.genres = movie.genres ? movie.genres : [];
+    movie.origins = movie.origins ? movie.origins : [];
+    return movie;
+  })
+  $(document).ready(function() {
+    //fill the filters with options
+    for (var i = 1940; i <= (new Date().getFullYear()); i += 10){
+      $("#year").append("<option>" + i + "s</option>");
+    };
+    for (var key in localization.countries){
+      $("#country").append("<option>" + key + "</option>");
+    };
+    for(var key in localization.genres){
+      $("#genre").append("<option>" + key + "</option>");
+    };
 
-  for (var key in localization.countries){
-    $("#country").append("<option>" + key + "</option>");
-  };
+    render(movies);
 
-  for(var key in localization.genres){
-    $("#genre").append("<option>" + key + "</option>");
-  };
+    $(".btn-success").click(function() {
+      var yearStr = extractCriteria("year");
+      var year = yearStr === null ? null : parseInt(yearStr);
+      var country = extractCriteria("country");
+      var genre = extractCriteria("genre");
+      var type = extractCriteria("type");
+      var watched = $("#watched").is(":checked");
+      render(filterMovies(movies, year, country, genre, type, watched));
+    });
 
-  render(movies);
-
-  $(".btn-success").click(function() {
-    var yearStr = extractCriteria("year");
-    var year = yearStr === null ? null : parseInt(yearStr);
-    var country = extractCriteria("country");
-    var genre = extractCriteria("genre");
-    var type = extractCriteria("type");
-    var watched = $("#watched").is(":checked");
-    render(filterMovies(movies, year, country, genre, type, watched));
-  });
-
-  $(".btn-danger").click(function(){
-    $("#year")[0].selectedIndex = 0;
-    $("#country")[0].selectedIndex = 0;
-    $("#genre")[0].selectedIndex = 0;
-    $("#type")[0].selectedIndex = 0;
-    $('#watched').prop('checked', false); 
-  });
+    $(".btn-danger").click(function(){
+      $("#year")[0].selectedIndex = 0;
+      $("#country")[0].selectedIndex = 0;
+      $("#genre")[0].selectedIndex = 0;
+      $("#type")[0].selectedIndex = 0;
+      $('#watched').prop('checked', false); 
+    });
 
     $(".loader").addClass("hide");
   });
+});
