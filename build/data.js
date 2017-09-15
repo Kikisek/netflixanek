@@ -244,27 +244,27 @@ var localization = {
 };
 var movies = [];
 
-for (var i = 0; i < 50; i++) {  
-	movies.push({
-    "id": faker.random.number(),
-    "title": faker.lorem.words(),
-    "description": faker.lorem.paragraph(),
-    "language": faker.random.locale(),
-    "year": faker.random.number({min: 1940, max: 2020}),
-    "type": faker.random.arrayElement(["movie", "show"]),
-    "rating_csfd": faker.random.number({min: 0, max: 100}),
-    "my_rating_csfd": null,
-    "link_csfd": "path/" + faker.system.fileName(),
-    "genres": faker.helpers.shuffle(Object.keys(localization.genres))
-        .slice(0, faker.random.number({min: 1, max: 4})),
-    "origins": faker.helpers.shuffle(Object.keys(localization.countries))
-        .slice(0, faker.random.number({min: 1, max: 3})),
-	});
-}
+// for (var i = 0; i < 50; i++) {  
+// 	movies.push({
+//     "id": faker.random.number(),
+//     "title": faker.lorem.words(),
+//     "description": faker.lorem.paragraph(),
+//     "language": faker.random.locale(),
+//     "year": faker.random.number({min: 1940, max: 2020}),
+//     "type": faker.random.arrayElement(["movie", "show"]),
+//     "rating_csfd": faker.random.number({min: 0, max: 100}),
+//     "my_rating_csfd": null,
+//     "link_csfd": "path/" + faker.system.fileName(),
+//     "genres": faker.helpers.shuffle(Object.keys(localization.genres))
+//         .slice(0, faker.random.number({min: 1, max: 4})),
+//     "origins": faker.helpers.shuffle(Object.keys(localization.countries))
+//         .slice(0, faker.random.number({min: 1, max: 3})),
+// 	});
+// }
 
-// $.getJSON("https://netflix-csfd.herokuapp.com/movies", function (data) {
-//   movies = data;
-// });
+$.getJSON("https://netflix-csfd.herokuapp.com/movies", function (data) {
+  movies = data;
+});
 
 
 // data = [
