@@ -1,9 +1,15 @@
 function render(data){
   $("tbody").empty();
+  var rating;
   for (var movie of data) {
+    if (movie.rating_csfd === null){
+      rating = "no rating";
+    } else {
+      rating = movie.rating_csfd + "%";
+    }
     $("tbody").append(`
       <tr class='openDescription'><td class='title' colspan='3'>${movie.title}</td></tr>             
-      <tr class='details openDescription'><td class='rating'>${movie.rating_csfd + "%"}</td>
+      <tr class='details openDescription'><td class='rating'>${rating}</td>
       <td class='releaseYear'>${movie.year}</td>
       <td class='gen'>${movie.genres.join(", ")}</td></tr>
       <tr class='description'><td colspan='3'><p>${movie.description}</p></td></tr>
