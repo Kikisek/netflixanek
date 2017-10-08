@@ -1,13 +1,7 @@
 h1 {
     text-align: center;
-}
-
-.jumbotron {
+    margin-top: 0.7em;
     margin-bottom: 0;
-}
-
-.description td p {
-    display: none;
 }
 
 table {
@@ -15,8 +9,19 @@ table {
     table-layout: fixed;
 }
 
-::-webkit-scrollbar { 
-    display: none; 
+.description td p {
+    display: none;
+}
+
+.panel {
+    margin-top: 1.5em;
+    margin-bottom: 0;
+    border: none;
+    position: relative;
+}
+
+.panel-footer {
+    border-radius: 6px;
 }
 
 .title {
@@ -50,10 +55,6 @@ table {
     text-align: center;
 } */
 
-#footer {
-    text-align: center;
-}
-
 .form-control {
     width: 100px;
     height: 25px;
@@ -61,15 +62,6 @@ table {
     text-align: center;
     display: inline-block;
     padding: 0;   
-}
-
-/* #year, #country, #genre, #type {
-    margin-right: 10px;
-} */
-
-#watched {
-    display: inline-block;
-    font-weight: normal;
 }
 
 .hide {             /*spinner*/
@@ -92,4 +84,80 @@ table {
     .narrow {
         width: 25%;
     }
- }
+
+    .selectionCriteria {
+        text-align: center;
+    }
+}
+
+input[type=checkbox] {
+	visibility: hidden;
+}
+
+.my-checkbox {
+    width: 25px;
+	position: relative;
+}
+
+.my-checkbox label {
+	cursor: pointer;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	top: 1px;
+  	left: 0;
+	background: #eee;
+    border:1px solid #000;
+    border-radius: 4px;
+}
+
+.my-checkbox label:after {
+	opacity: 0;
+	content: '';
+	position: absolute;
+	width: 18px;
+	height: 10px;
+	background: transparent;
+	top: 3px;
+	left: 3px;
+	border: 3px solid #333;
+	border-top: none;
+	border-right: none;
+
+	transform: rotate(-45deg);
+}
+
+.my-checkbox input[type=checkbox]:checked + label:after {
+	opacity: 1;
+}
+
+#checkbox-section {
+    display: inline-block;
+}
+
+#label-watched {
+    font-weight: normal;
+}
+
+#icon {
+    text-align: center;
+    font-size: 3.1em;
+}
+
+ #jumbo {
+    margin-top: 3%;
+    padding: 0;
+}
+
+#watched {
+    display: inline-block;
+    font-weight: normal;
+}
+
+#footer {
+    text-align: center;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}

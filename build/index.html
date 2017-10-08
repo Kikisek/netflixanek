@@ -12,42 +12,54 @@
 </head>
 <body>
 
-<div class="jumbotron">
-        <h1><i class="fa fa-video-camera" aria-hidden="true"></i> Netflixánek</h1>
-</div>
+<div class="container">
+<div class="jumbotron" id="jumbo">
+  
+  <h1> Netflixánek</h1>
+  <div id="icon">
+      <i class="fa fa-video-camera" aria-hidden="true"></i>      
+  </div>
 
-<div class="panel panel-default">
-  <div class="panel-body">
-    <div class="container">
-      <select class="form-control" id="year">
-        <option>All Decades</option>
-      </select>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="selectionCriteria">
+        <select class="form-control" id="year">
+          <option>All Decades</option>
+        </select>
 
-      <select class="form-control" id="country">
-        <option>All Countries</option>
-      </select>
+        <select class="form-control" id="country">
+          <option>All Countries</option>
+        </select>
 
-      <select class="form-control" id="genre">
-        <option>All Genres</option>
-      </select> 
-      
-      <select class="form-control" id="type">
-        <option>All Types</option>
-        <option>Movie</option>
-        <option>Show</option>
-      </select>
+        <select class="form-control" id="genre">
+          <option>All Genres</option>
+        </select> 
+        
+        <select class="form-control" id="type">
+          <option>All Types</option>
+          <option>Movie</option>
+          <option>Show</option>
+        </select>
 
-      <label><input type="checkbox" id="watched"> Watched</label>
+        <!-- <label><input type="checkbox" id="watched"> Watched</label> -->
+        <label id="label-watched">
+          <section id="checkbox-section">  
+            <div class="my-checkbox">    
+              <input type="checkbox" value="1" id="custom-checkbox" name="my-checkbox"/>    
+              <label for="custom-checkbox"></label>              
+            </div>
+          </section> Watched
+        </label>
+      </div>
+    </div>
+
+    <div class="panel-footer">
+      <button type="button" class="btn btn-success btn-sm">Search</button>
+      <button type="button" class="btn btn-danger btn-sm">Reset Search</button>
     </div>
   </div>
-
-  <div class="panel-footer">
-    <button type="button" class="btn btn-success btn-sm">Search</button>
-    <button type="button" class="btn btn-danger btn-sm">Reset Search</button>
-  </div>
 </div>
 
-<div class="container">
   <table class="table">
       <colgroup>
         <col class="narrow">
@@ -63,11 +75,12 @@
     
     <tbody></tbody>
   </table>
-</div>
+
 
 <div class="loader">Loading...</div>
 
 <p id="footer">Our personal customized movie database that was created to link the movies on <a href="http://www.netflix.com">Netflix</a> with the rating on <a href="http://www.csfd.cz">CSFD</a></p>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
