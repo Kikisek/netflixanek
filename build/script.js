@@ -1,5 +1,5 @@
 // fill table with data
-function render (data) {
+function render(data) {
   $("tbody").empty();
   var rating;
   for (var movie of data) {
@@ -15,16 +15,19 @@ function render (data) {
         <td class='releaseYear'>${movie.year}</td>
         <td class='genres'>${movie.genres.join(", ")}</td>
       </tr>
-      <tr class='description'><td colspan='3'><p>${movie.description}</p></td></tr>
+      <tr class='description closed'><td colspan='3'><div>${movie.description}</div></td></tr>
     `);
   };
-  $(".open-description").click (function (event) {
-    $(this).nextAll(".description:first").children().children().slideToggle();
-  });
+  // $(".open-description").click (function () {
+  //   $(this).nextAll(".description:first").children().children().slideToggle();
+  // });
+  $(".open-description").click(function (){
+    $(this).nextAll(".description:first").toggleClass("closed");
+  })
 };
 
 // filter data
-function filterMovies (movies, year, country, genre, type, watched) {
+function filterMovies(movies, year, country, genre, type, watched) {
   return movies.filter(function (film) {
     var seen = true;
     if (film.my_rating_csfd === null) {
@@ -41,7 +44,7 @@ function filterMovies (movies, year, country, genre, type, watched) {
 
 // extract search criteria from search options
 function extractCriteria(id) {
-  if ($("#" + id)[0].selectedIndex === 0){
+  if ($("#" + id)[0].selectedIndex === 0) {
     return null;
   }
   return $("#" + id).val();
@@ -50,14 +53,14 @@ function extractCriteria(id) {
 // load data from server
 $.getJSON("https://netflix-csfd.herokuapp.com/movies", function (data) {
   // if there is no genre or origin, return empty array
-  var movies = data.map(function(movie) {
+  var movies = data.map(function (movie) {
     movie.genres = movie.genres ? movie.genres : [];
     movie.origins = movie.origins ? movie.origins : [];
     return movie;
   })
 
   // load document
-  $(document).ready(function() {
+  $(document).ready(function () {
     //fill the filters with options
     for (var i = 1940; i <= (new Date().getFullYear()); i += 10) {
       $("#year").append("<option>" + i + "s</option>");
@@ -73,7 +76,7 @@ $.getJSON("https://netflix-csfd.herokuapp.com/movies", function (data) {
     render(movies);
 
     // filter movies
-    $(".btn-success").click(function() {
+    $(".btn-success").click(function () {
       var yearStr = extractCriteria("year");
       var year = yearStr === null ? null : parseInt(yearStr);
       var country = extractCriteria("country");
@@ -84,12 +87,12 @@ $.getJSON("https://netflix-csfd.herokuapp.com/movies", function (data) {
     });
 
     // reset search options
-    $(".btn-danger").click(function() {
+    $(".btn-danger").click(function () {
       $("#year")[0].selectedIndex = 0;
       $("#country")[0].selectedIndex = 0;
       $("#genre")[0].selectedIndex = 0;
       $("#type")[0].selectedIndex = 0;
-      $('#custom-checkbox').prop('checked', false); 
+      $('#custom-checkbox').prop('checked', false);
     });
 
     // hide loader when data is loaded
