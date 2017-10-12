@@ -5,7 +5,6 @@ h1 {
 }
 
 table {
-    
     table-layout: fixed;
 }
 
@@ -24,7 +23,7 @@ table {
     font-size: 1.2em;
 }
 
-.openDescription {
+.open-description {
     cursor: pointer;
 }
 
@@ -32,13 +31,13 @@ table {
     font-size: 0.8em;
 }
 
-.gen {
+.genres {
     white-space: nowrap;
     overflow: hidden;
 }
 
 .narrow {
-      width: 60px;
+    width: 60px;
 }
 
 #search-buttons {
@@ -46,7 +45,7 @@ table {
     padding: 0.6em 0 1.4em 0;
 }
 
-/* .gen {                            for icons
+/* .genres {                            for icons
     text-align: center;
 } */
 
@@ -80,66 +79,21 @@ table {
         width: 25%;
     }
 
-    .selectionCriteria {
+    .selection-criteria {
         text-align: center;
     }
-}
-
-input[type=checkbox] {
-	visibility: hidden;
-}
-
-.my-checkbox {
-    width: 25px;
-	position: relative;
-}
-
-.my-checkbox label {
-	cursor: pointer;
-	position: absolute;
-	width: 25px;
-	height: 25px;
-	top: 1px;
-  	left: 0;
-	background: #eee;
-    border:1px solid #000;
-    border-radius: 4px;
-}
-
-.my-checkbox label:after {
-	opacity: 0;
-	content: '';
-	position: absolute;
-	width: 18px;
-	height: 10px;
-	background: transparent;
-	top: 3px;
-	left: 3px;
-	border: 3px solid #333;
-	border-top: none;
-	border-right: none;
-
-	transform: rotate(-45deg);
-}
-
-.my-checkbox input[type=checkbox]:checked + label:after {
-	opacity: 1;
-}
-
-#checkbox-section {
-    display: inline-block;
 }
 
 #label-watched {
     font-weight: normal;
 }
 
-#icon {
+#favicon {
     text-align: center;
     font-size: 3.1em;
 }
 
- #jumbo {
+#jumbo {
     margin-top: 3%;
     margin-bottom: 0;
     padding-top: 0;
@@ -147,11 +101,6 @@ input[type=checkbox] {
     padding-left: 0;
     padding-bottom: 0.7em;
     border-radius: 6px 6px 0 0;
-}
-
-#watched {
-    display: inline-block;
-    font-weight: normal;
 }
 
 #footer {

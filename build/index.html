@@ -3,44 +3,48 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Netflixánek</title>
-    <link rel="stylesheet" href="spinner.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">    
+    <link rel="stylesheet" href="./stylesheets/spinner.css">
+    <link rel="stylesheet" href="./stylesheets/checkbox-watched.css">
+    <link rel="stylesheet" href="./stylesheets/style.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> 
 </head>
 <body>
 
 <div class="container">
+  <!-- jumbotron -->
   <div class="jumbotron" id="jumbo">
     <h1> Netflixánek</h1>
-    <div id="icon">
+    <div id="favicon">
         <i class="fa fa-video-camera" aria-hidden="true"></i>      
     </div>
   </div>
 
+  <!-- panel with selection criteria -->
   <div class="panel panel-default">
     <div class="panel-body">
-      <div class="selectionCriteria">
+      <div class="selection-criteria">
+        <!-- year -->
         <select class="form-control" id="year">
           <option>All Decades</option>
         </select>
-
+        <!-- country -->
         <select class="form-control" id="country">
           <option>All Countries</option>
         </select>
-
+        <!-- genre -->
         <select class="form-control" id="genre">
           <option>All Genres</option>
         </select> 
-        
+        <!-- type -->
         <select class="form-control" id="type">
           <option>All Types</option>
           <option>Movie</option>
           <option>Show</option>
         </select>
-
+        <!-- watched checkbox -->
         <label id="label-watched">
           <section id="checkbox-section">  
             <div class="my-checkbox">    
@@ -52,13 +56,13 @@
       </div>
     </div>
   </div>      
-
+  <!-- search buttons -->
   <div id="search-buttons">
     <button type="button" class="btn btn-success btn-sm">Search</button>
     <button type="button" class="btn btn-danger btn-sm">Reset Search</button>
   </div>
 
-
+  <!-- table -->
   <table class="table">
       <colgroup>
         <col class="narrow">
@@ -66,7 +70,6 @@
         <col>
       </colgroup>
     <thead>
-      <!-- <th>Movie</th> -->
       <th>Rating</th>
       <th>Year</th>
       <th>Genre</th>
@@ -75,9 +78,10 @@
     <tbody></tbody>
   </table>
 
-
+<!-- loading -->
 <div class="loader">Loading...</div>
 
+<!-- footer -->
 <p id="footer">Our personal customized movie database that was created to link the movies on <a href="http://www.netflix.com">Netflix</a> with the rating on <a href="http://www.csfd.cz">CSFD</a></p>
 </div>
 
