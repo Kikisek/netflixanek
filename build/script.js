@@ -3,7 +3,8 @@ var filtered = [];
 
 function showFirstPage(movies) {
   page = 0;
-  $("#movie-count").text(movies.length);
+  $("#movie-count").text(movies.length + " movies");
+  $("#page-number").text(page + 1 + " / " + Math.floor(movies.length/15 + 1));
   $("#previous").addClass("hide");
   $("#next").removeClass("hide");
   if (page + 1 >= movies.length / 15) {
@@ -101,6 +102,7 @@ $.getJSON("https://netflix-csfd.herokuapp.com/movies", function (data) {
     // handle pagination
     $("#next").click(function () {
       page++;
+      $("#page-number").text(page + 1 + " / " + Math.floor(filtered.length/15 + 1));      
       $("#previous").removeClass("hide");
       if (page + 1 >= filtered.length / 15) {
         $("#next").addClass("hide");
@@ -110,6 +112,7 @@ $.getJSON("https://netflix-csfd.herokuapp.com/movies", function (data) {
 
     $("#previous").click(function () {
       page--;
+      $("#page-number").text(page + 1 + " / " + Math.floor(filtered.length/15 + 1));
       $("#next").removeClass("hide");
       if (page === 0) {
         $("#previous").addClass("hide");
