@@ -32,9 +32,6 @@ function render(data) {
       <tr class='description closed'><td colspan='3'><div>${movie.description}</div></td></tr>
     `);
   };
-  // $(".open-description").click (function () {
-  //   $(this).nextAll(".description:first").children().children().slideToggle();
-  // });
   $(".open-description").click(function () {
     $(this).nextAll(".description:first").toggleClass("closed");
   })
@@ -62,6 +59,17 @@ function extractCriteria(id) {
     return null;
   }
   return $("#" + id).val();
+}
+
+function displayFilteredMovies(movies) {
+  var yearStr = extractCriteria("year");
+  var year = yearStr === null ? null : parseInt(yearStr);
+  var country = extractCriteria("country");
+  var genre = extractCriteria("genre");
+  var type = extractCriteria("type");
+  var watched = $("#custom-checkbox").is(":checked");
+  filtered = filterMovies(movies, year, country, genre, type, watched);
+  return showFirstPage(filtered);
 }
 
 // load data from server
@@ -110,16 +118,16 @@ $.getJSON("https://netflix-csfd.herokuapp.com/movies", function (data) {
     });
     
     // filter movies
-    $(".btn-success").click(function () {
-      var yearStr = extractCriteria("year");
-      var year = yearStr === null ? null : parseInt(yearStr);
-      var country = extractCriteria("country");
-      var genre = extractCriteria("genre");
-      var type = extractCriteria("type");
-      var watched = $("#custom-checkbox").is(":checked");
-      filtered = filterMovies(movies, year, country, genre, type, watched);
-      showFirstPage(filtered);
-    });
+    // $(".btn-success").click(function () {
+    //   var yearStr = extractCriteria("year");
+    //   var year = yearStr === null ? null : parseInt(yearStr);
+    //   var country = extractCriteria("country");
+    //   var genre = extractCriteria("genre");
+    //   var type = extractCriteria("type");
+    //   var watched = $("#custom-checkbox").is(":checked");
+    //   filtered = filterMovies(movies, year, country, genre, type, watched);
+    //   showFirstPage(filtered);
+    // });
 
     // reset search options
     $(".btn-danger").click(function () {
@@ -130,6 +138,11 @@ $.getJSON("https://netflix-csfd.herokuapp.com/movies", function (data) {
       $('#custom-checkbox').prop('checked', false);
       filtered = movies;
       showFirstPage(movies);
+    });
+
+    // filter movies without pressing Search button
+    $(".selection-criteria").on("change", ".criteria", function () {
+      displayFilteredMovies(movies);
     });
 
     // hide loader when data is loaded
