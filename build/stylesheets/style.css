@@ -54,7 +54,7 @@ table {
     padding: 0;   
 }
 
-.hide {             /*spinner*/
+.hide {            
     visibility: hidden;   
 }
 
@@ -110,10 +110,10 @@ table {
 .description td div {
 	overflow-y: hidden;
     max-height: 200px;
-    transition: max-height 2s linear;
+    transition: max-height 0.3s linear;
 }
 
 .description.closed td div {
     max-height: 0;
-    transition: max-height 0.9s cubic-bezier(0, 1, 0, 1);    
+    transition: max-height 0.16s cubic-bezier(0, 1, 0, 1);    
 }
