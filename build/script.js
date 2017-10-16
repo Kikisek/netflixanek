@@ -1,6 +1,17 @@
 var page = 0;
 var filtered = [];
 
+function showFirstPage(movies) {
+  page = 0;
+  $("#movie-count").text(movies.length);
+  $("#previous").addClass("hide");
+  $("#next").removeClass("hide");
+  if (page + 1 >= movies.length / 15) {
+    $("#next").addClass("hide");
+  }
+  render(movies.slice(0, 15));  
+};
+
 // fill table with data
 function render(data) {
   $("tbody").empty();
@@ -77,17 +88,21 @@ $.getJSON("https://netflix-csfd.herokuapp.com/movies", function (data) {
 
     // fill table with movies
     filtered = movies;
-    render(movies.slice(0, 15));
+    showFirstPage(movies);
 
     // handle pagination
     $("#next").click(function () {
-      $("#previous").removeClass("hide");
       page++;
+      $("#previous").removeClass("hide");
+      if (page + 1 >= filtered.length / 15) {
+        $("#next").addClass("hide");
+      }
       render(filtered.slice(page * 15, (page + 1) * 15));
     });
 
     $("#previous").click(function () {
       page--;
+      $("#next").removeClass("hide");
       if (page === 0) {
         $("#previous").addClass("hide");
       }
@@ -103,9 +118,7 @@ $.getJSON("https://netflix-csfd.herokuapp.com/movies", function (data) {
       var type = extractCriteria("type");
       var watched = $("#custom-checkbox").is(":checked");
       filtered = filterMovies(movies, year, country, genre, type, watched);
-      page = 0;
-      $("#previous").addClass("hide");
-      render(filtered.slice(0, 15));
+      showFirstPage(filtered);
     });
 
     // reset search options
@@ -115,6 +128,8 @@ $.getJSON("https://netflix-csfd.herokuapp.com/movies", function (data) {
       $("#genre")[0].selectedIndex = 0;
       $("#type")[0].selectedIndex = 0;
       $('#custom-checkbox').prop('checked', false);
+      filtered = movies;
+      showFirstPage(movies);
     });
 
     // hide loader when data is loaded
