@@ -41,15 +41,14 @@ function render(data) {
 // filter data
 function filterMovies(movies, year, country, genre, type, watched) {
   return movies.filter(function (film) {
-    var seen = true;
     if (film.my_rating_csfd === null) {
-      seen = false;
+      var notSeen = true;
     }
     var isWithinDecade = !year || (film.year > year && film.year < year + 10);
     var isFromCountry = !country || film.origins.includes(country);
     var isGenre = !genre || film.genres.includes(genre);
     var isType = !type || film.type.toLowerCase() === type.toLowerCase();
-    var isWatched = seen === watched;
+    var isWatched = watched || notSeen;
     return isWithinDecade && isFromCountry && isGenre && isType && isWatched;
   })
 }
@@ -138,7 +137,7 @@ $.getJSON("https://netflix-csfd.herokuapp.com/movies", function (data) {
       $("#country")[0].selectedIndex = 0;
       $("#genre")[0].selectedIndex = 0;
       $("#type")[0].selectedIndex = 0;
-      $('#custom-checkbox').prop('checked', false);
+      $('#custom-checkbox').prop('checked', true);
       filtered = movies;
       showFirstPage(movies);
     });
