@@ -1,0 +1,24 @@
+{
+  "name": "netflix-frontend",
+  "version": "1.0.0",
+  "description": "Personal website that connects movies available on netflix.ca with the rating on csfd.cz. The purpose of this project is to quickly find well rated movies on Netflix.",
+  "main": "script.js",
+  "scripts": {
+    "build": "babel src -d build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kikisek/netflixanek.git"
+  },
+  "author": "Kiki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kikisek/netflixanek/issues"
+  },
+  "homepage": "https://github.com/Kikisek/netflixanek#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  }
+}

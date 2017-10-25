@@ -1,42 +1,40 @@
-"use strict";
-
 var localization = {
   genres: {
     "Action": "Akční",
     "Adventure": "Dobrodružný",
-    "Biography": "Životopisný",
+    "Biography": "Životopisný",    
     "Cartoon": "Animovaný",
     "Catastrophic": "Katastrofický",
     "Comedy": "Komedie",
-    "Competition": "Soutěžní",
+    "Competition": "Soutěžní",    
     "Crimi": "Krimi",
-    "Dance": "Taneční",
+    "Dance": "Taneční",    
     "Documentary": "Dokumentární",
     "Drama": "Drama",
     "Erotic": "Erotický",
     "Experimental": "Experimentální",
-    "Fairytale": "Pohádka",
-    "Family": "Rodinný",
+    "Fairytale": "Pohádka", 
+    "Family": "Rodinný",    
     "Fantasy": "Fantasy",
     "Film-Noir": "Film-Noir",
     "Historical": "Historický",
     "Horror": "Horor",
-    "IMAX": "IMAX",
+    "IMAX": "IMAX",    
     "Music": "Hudební",
     "Musical": "Muzikál",
     "Mystery": "Mysteriózní",
-    "Narrative": "Povídkový",
+    "Narrative": "Povídkový",    
     "Short": "Krátkometrážní",
     "Parable": "Podobenství",
-    "Poetic": "Poetický",
-    "Psychological": "Psychologický",
-    "Publicistic": "Publicistický",
+    "Poetic": "Poetický", 
+    "Psychological": "Psychologický",    
+    "Publicistic": "Publicistický",    
     "Puppet": "Loutkový",
     "Reality Show": "Reality-TV",
     "Road Movie": "Road movie",
     "Romantic": "Romantický",
     "Scifi": "Sci-Fi",
-    "Soup Opera": "Telenovela",
+    "Soup Opera": "Telenovela",    
     "Sports": "Sportovní",
     "Talk Show": "Talk-show",
     "Thriller": "Thriller",
@@ -44,7 +42,7 @@ var localization = {
     "Western": "Western"
   },
 
-  countries: {
+  countries: {  
     Afghanistan: "Afghánistán",
     Albania: "Albánie",
     Algeria: "Alžírsko",
@@ -244,6 +242,7 @@ var localization = {
     Zimbabwe: "Zimbabwe"
   }
 };
+
 
 // for (var i = 0; i < 50; i++) {  
 // 	movies.push({
