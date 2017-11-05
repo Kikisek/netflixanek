@@ -1,4 +1,6 @@
-var localization = {
+/* exported localization */
+
+const localization = {
   genres: {
     "Action": "Akční",
     "Adventure": "Dobrodružný",

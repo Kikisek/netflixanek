@@ -1,5 +1,5 @@
-var page = 0;
-var filtered = [];
+let page = 0;
+let filtered = [];
 
 function showFirstPage(movies) {
   page = 0;
@@ -11,18 +11,13 @@ function showFirstPage(movies) {
     $("#next").addClass("hide");
   }
   render(movies.slice(0, 15));  
-};
+}
 
 // fill table with data
 function render(data) {
   $("tbody").empty();
-  var rating;
-  for (var movie of data) {
-    if (movie.rating_csfd === null) {
-      rating = "no rating";
-    } else {
-      rating = movie.rating_csfd + "%";
-    }
+  for (let movie of data) {
+    const rating = movie.rating_csfd ? movie.rating_csfd + "%" : "no rating";
     $("tbody").append(`
       <tr class='open-description'><td class='title' colspan='3'>${movie.title}</td></tr>             
       <tr class='details open-description'>
@@ -32,24 +27,22 @@ function render(data) {
       </tr>
       <tr class='description closed'><td colspan='3'><div>${movie.description}</div></td></tr>
     `);
-  };
-  $(".open-description").click(function () {
+  }
+  $(".open-description").click(() => {
     $(this).nextAll(".description:first").toggleClass("closed");
   })
-};
+}
 
 // filter data
 function filterMovies(movies, year, country, genre, type, watched) {
-  return movies.filter(function (film) {
-    if (film.my_rating_csfd === null) {
-      var notSeen = true;
-    }
-    var isWithinDecade = !year || (film.year > year && film.year < year + 10);
-    var isFromCountry = !country || film.origins.includes(country);
-    var isGenre = !genre || film.genres.includes(genre);
-    var isType = !type || film.type.toLowerCase() === type.toLowerCase();
-    var isWatched = watched || notSeen;
-    return isWithinDecade && isFromCountry && isGenre && isType && isWatched;
+  return movies.filter(film => {
+    const notSeen = !film.my_rating_csfd;
+    const isWithinDecade = !year || (film.year > year && film.year < year + 10);
+    const isFromCountry = !country || film.origins.includes(country);
+    const matchesGenre = !genre || film.genres.includes(genre);
+    const matchesType = !type || film.type.toLowerCase() === type.toLowerCase();
+    const isWatched = watched || notSeen;
+    return isWithinDecade && isFromCountry && matchesGenre && matchesType && isWatched;
   })
 }
 
@@ -62,44 +55,44 @@ function extractCriteria(id) {
 }
 
 function displayFilteredMovies(movies) {
-  var yearStr = extractCriteria("year");
-  var year = yearStr === null ? null : parseInt(yearStr);
-  var country = extractCriteria("country");
-  var genre = extractCriteria("genre");
-  var type = extractCriteria("type");
-  var watched = $("#custom-checkbox").is(":checked");
+  const yearStr = extractCriteria("year");
+  const year = yearStr === null ? null : parseInt(yearStr);
+  const country = extractCriteria("country");
+  const genre = extractCriteria("genre");
+  const type = extractCriteria("type");
+  const watched = $("#custom-checkbox").is(":checked");
   filtered = filterMovies(movies, year, country, genre, type, watched);
   return showFirstPage(filtered);
 }
 
 // load data from server
-$.getJSON("https://netflix-csfd.herokuapp.com/movies", function (data) {
+$.getJSON("https://netflix-csfd.herokuapp.com/movies", data => {
   // if there is no genre or origin, return empty array
-  var movies = data.map(function (movie) {
+  const movies = data.map(movie => {
     movie.genres = movie.genres ? movie.genres : [];
     movie.origins = movie.origins ? movie.origins : [];
     return movie;
   })
 
   // load document
-  $(document).ready(function () {
+  $(document).ready(() => {
     //fill the filters with options
-    for (var i = 1940; i <= (new Date().getFullYear()); i += 10) {
+    for (let i = 1940; i <= (new Date().getFullYear()); i += 10) {
       $("#year").append("<option>" + i + "s</option>");
-    };
-    for (var key in localization.countries) {
+    }
+    for (let key in localization.countries) {
       $("#country").append("<option>" + key + "</option>");
-    };
-    for (var key in localization.genres) {
+    }
+    for (let key in localization.genres) {
       $("#genre").append("<option>" + key + "</option>");
-    };
+    }
 
     // fill table with movies
     filtered = movies;
     showFirstPage(movies);
 
     // handle pagination
-    $("#next").click(function () {
+    $("#next").click(() => {
       page++;
       $("#page-number").text(page + 1 + " / " + Math.floor(filtered.length/15 + 1));      
       $("#previous").removeClass("hide");
@@ -109,7 +102,7 @@ $.getJSON("https://netflix-csfd.herokuapp.com/movies", function (data) {
       render(filtered.slice(page * 15, (page + 1) * 15));
     });
 
-    $("#previous").click(function () {
+    $("#previous").click(() => {
       page--;
       $("#page-number").text(page + 1 + " / " + Math.floor(filtered.length/15 + 1));
       $("#next").removeClass("hide");
@@ -118,32 +111,20 @@ $.getJSON("https://netflix-csfd.herokuapp.com/movies", function (data) {
       }
       render(filtered.slice(page * 15, (page + 1) * 15));
     });
-    
-    // filter movies
-    // $(".btn-success").click(function () {
-    //   var yearStr = extractCriteria("year");
-    //   var year = yearStr === null ? null : parseInt(yearStr);
-    //   var country = extractCriteria("country");
-    //   var genre = extractCriteria("genre");
-    //   var type = extractCriteria("type");
-    //   var watched = $("#custom-checkbox").is(":checked");
-    //   filtered = filterMovies(movies, year, country, genre, type, watched);
-    //   showFirstPage(filtered);
-    // });
 
     // reset search options
-    $(".btn-danger").click(function () {
+    $(".btn-danger").click(() => {
       $("#year")[0].selectedIndex = 0;
       $("#country")[0].selectedIndex = 0;
       $("#genre")[0].selectedIndex = 0;
       $("#type")[0].selectedIndex = 0;
-      $('#custom-checkbox').prop('checked', true);
+      $("#custom-checkbox").prop("checked", true);
       filtered = movies;
       showFirstPage(movies);
     });
 
     // filter movies without pressing Search button
-    $(".selection-criteria").on("change", ".criteria", function () {
+    $(".selection-criteria").on("change", ".criteria", () => {
       displayFilteredMovies(movies);
     });
 
