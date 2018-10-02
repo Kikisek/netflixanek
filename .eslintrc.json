@@ -1,0 +1,16 @@
+{
+    "extends": "eslint:recommended",
+    "env": {
+        "es6": true,
+        "browser": true,
+        "jquery": true
+    },    
+    "rules": {
+        "quotes": ["error", "double"],
+        "linebreak-style": 0,
+        "no-var": ["error"]
+    },
+    "globals": {
+        "localization": false
+    }
+}

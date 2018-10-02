@@ -4,8 +4,8 @@
   "description": "Personal website that connects movies available on netflix.ca with the rating on csfd.cz. The purpose of this project is to quickly find well rated movies on Netflix.",
   "main": "script.js",
   "scripts": {
-    "build": "babel src -d build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel ./src -d ./build",
+    "prebuild": "eslint ./src"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Kikisek/netflixanek#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1"
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.10.0"
   }
 }
